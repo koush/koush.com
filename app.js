@@ -112,6 +112,7 @@ app.configure('development', function(){
 });
 
 function getProject(name, req, res) {
+  res.header('Cache-Control', 'max-age=300');
   async.parallel([
     function(cb) {
       request('https://api.github.com/repos/' + name, function(err, resp, body) {
