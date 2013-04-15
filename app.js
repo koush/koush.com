@@ -100,6 +100,10 @@ poet
 .createPageRoute()
 .createTagRoute()
 .createCategoryRoute()
+.addTemplate({
+  ext : [ 'markdown', 'md' ],
+  fn : renderMarkdown
+})
 .init(function(core) {
   app.get('/rss', function ( req, res ) {
     var posts = core.getPosts(0, 5);
@@ -119,56 +123,53 @@ poet
   app.get('/', function(req, res) {
     var posts = core.getPosts(0, 5);
     res.render('index', { posts: posts });
-  })
-});
-
-poet.addTemplate({
-  ext : [ 'markdown', 'md' ],
-  fn : renderMarkdown
-});
-
-function getProject(name, req, res) {
-  res.header('Cache-Control', 'max-age=300');
-  async.parallel([
-    function(cb) {
-      request('https://api.github.com/repos/' + name, function(err, resp, body) {
-        cb(null, JSON.parse(body));
-      })
-    },
-    function(cb) {
-      request('https://raw.github.com/' + name + '/master/README.md', function(err, resp, body) {
-        renderMarkdown(body, cb);
-      })
-    }
-    ],
-    function(err, results) {
-      if (err) {
-        res.send(err);
-        return;
+  });
+  
+  function getProject(name, req, res) {
+    res.header('Cache-Control', 'max-age=300');
+    async.parallel([
+      function(cb) {
+        request('https://api.github.com/repos/' + name, function(err, resp, body) {
+          cb(null, JSON.parse(body));
+        })
+      },
+      function(cb) {
+        request('https://raw.github.com/' + name + '/master/README.md', function(err, resp, body) {
+          renderMarkdown(body, cb);
+        })
       }
-      
-      var info = results[0];
-      var md = results[1];
-      res.render('github',
-        {
-          name: name,
-          markdown: md,
-          project: {
-            owner: info.owner,
-            title: info.name,
-            description: info.description,
-          }
+      ],
+      function(err, results) {
+        if (err) {
+          res.send(err);
+          return;
+        }
+
+        var info = results[0];
+        var md = results[1];
+        res.render('github',
+          {
+            name: name,
+            markdown: md,
+            project: {
+              owner: info.owner,
+              title: info.name,
+              description: info.description,
+            }
+        });
       });
-    });
-}
+  }
 
-app.get('/AndroidAsync', function(req, res) {
-  getProject('koush/AndroidAsync', req, res);
-})
-app.get('/UrlImageViewHelper', function(req, res) {
-  getProject('koush/UrlImageViewHelper', req, res);
-})
+  app.get('/AndroidAsync', function(req, res) {
+    getProject('koush/AndroidAsync', req, res);
+  })
+  app.get('/UrlImageViewHelper', function(req, res) {
+    getProject('koush/UrlImageViewHelper', req, res);
+  })
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
+  });
+  
 });
+
