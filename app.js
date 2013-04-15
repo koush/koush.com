@@ -52,7 +52,13 @@ poet
     });
 
     res.render( 'rss', { posts: posts });
-  });  
+  });
+  
+  
+  app.get('/', function(req, res) {
+    var posts = core.getPosts(0, 5);
+    res.render('index', { posts: posts });
+  })
 });
 
 function renderMarkdown(string, cb) {
@@ -157,10 +163,6 @@ app.get('/AndroidAsync', function(req, res) {
 })
 app.get('/UrlImageViewHelper', function(req, res) {
   getProject('koush/UrlImageViewHelper', req, res);
-})
-
-app.get('/', function(req, res) {
-  res.render('index');
 })
 
 http.createServer(app).listen(app.get('port'), function(){
