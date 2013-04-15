@@ -1,0 +1,31 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='chrome=1')
+    meta(name='description', content='Androidasync : Asynchronous socket and http library for android. Based on nio, not threads. Supports websockets, socket.io, http caching, http servers, and more.')
+    link(rel='stylesheet', type='text/css', media='screen', href='/stylesheets/github-combine.css')
+    title=project.title
+  body
+    //
+       HEADER 
+    #header_wrap.outer
+      header.inner
+        a#forkme_banner(href='https://github.com/koush/' + project.title) View on GitHub
+        h1#project_title=project.title
+        h2#project_tagline
+          | Asynchronous socket and http library for android. Based on nio, not threads. Supports websockets, socket.io, http caching, http servers, and more.
+        section#downloads
+          a.zip_download_link(href='https://github.com/koush/' + project.title + '/zipball/master') Download this project as a .zip file
+          a.tar_download_link(href='https://github.com/koush/' + project.title + '/tarball/master') Download this project as a tar.gz file
+    //
+       MAIN CONTENT 
+    #main_content_wrap.outer
+      section#main_content.inner!= markdown
+    //
+       FOOTER  
+    #footer_wrap.outer
+      footer.inner
+        p.copyright=project.title + ' '
+          | maintained by 
+          a(href='https://github.com/koush') koush

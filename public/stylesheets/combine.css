@@ -4,7 +4,7 @@
 
 @import 'style.css';
 
-@import 'highlight.css';
+@import '/github/stylesheets/pygment_trac.css';
 /*!
  * Bootstrap v2.3.1
  *

@@ -15,6 +15,8 @@ var markdown = require( "markdown" ).markdown;
 var hljs = require('highlight.js');
 var request = require('request');
 var html2text = require( 'html-to-text');
+var highlight = require('pygments').colorize;
+var async = require('async');
 
 markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   // Inline code block. as many backticks as you like to start it
@@ -23,11 +25,10 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   if ( m && m[3] ) {
     var contents = m[4];
     var lang = m[2].trim();
-    if (lang.length)
-      contents = hljs.highlight(lang, contents).value;
-    else
-      contents = hljs.highlightAuto(contents).value;
-    return [ m[1].length + m[2].length + m[3].length, [ "raw", "<pre class='highlight'>" + contents + "</pre>" ] ];
+    contents = hljs.highlight(lang, contents).value;
+    // return [ m[1].length + m[2].length + m[3].length, [ "raw", "<pre class='highlight'>" + contents + "</pre>" ] ];
+    return [ m[1].length + m[2].length + m[3].length, [ "pygmentize", lang, m[4] ] ];
+    
   }
   else {
     // TODO: No matching end code found - warn!
@@ -56,11 +57,41 @@ poet
   });  
 });
 
+function renderMarkdown(string, cb) {
+  var data = markdown.parse(string);
+  var snippets = [];
+  
+  function recurse(entry) {
+    if (entry[0] == 'pygmentize') {
+      var lang = entry[1];
+      var contents = entry[2];
+      snippets.push(function(cb) {
+        highlight(contents, lang, 'html', function(data) {
+          entry[0] = 'raw';
+          entry.pop();
+          entry[1] = data;
+          cb();
+        });
+      });
+    }
+    for (var child in entry) {
+      child = entry[child];
+      if (typeof child == 'object') {
+        recurse(child);
+      }
+    }
+  }
+  
+  recurse(data);
+  async.parallel(snippets, function() {
+    var rendered = markdown.toHTML(data);
+    cb(null, rendered);
+  });
+}
+
 poet.addTemplate({
   ext : [ 'markdown', 'md' ],
-  fn : function ( string ) {
-    return markdown.toHTML( string );
-  }
+  fn : renderMarkdown
 });
 
 app.configure(function(){
@@ -99,6 +130,19 @@ app.get('/UrlImageViewHelper*', function(req, res) {
 });
 
 app.get('/', routes.index);
+app.get('/test', function(req, res) {
+  request('https://raw.github.com/koush/AndroidAsync/master/README.md', function(err, resp, body) {
+    renderMarkdown(body, function(err, md) {
+      res.render('github',
+        {
+          markdown: md,
+          project: {
+          title: 'AndroidAsync'
+        }
+      });
+    });
+  });
+})
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
