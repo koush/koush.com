@@ -4,8 +4,6 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -100,7 +98,6 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(function(req, res, next) {
     console.log(req.headers.host);
-    
     if ('www.koush.com' == req.headers.host) {
       res.redirect('http://koush.com' + req.path);
       return;
@@ -155,14 +152,16 @@ function getProject(name, req, res) {
     });
 }
 
-app.get('/', routes.index);
 app.get('/AndroidAsync', function(req, res) {
   getProject('koush/AndroidAsync', req, res);
 })
 app.get('/UrlImageViewHelper', function(req, res) {
   getProject('koush/UrlImageViewHelper', req, res);
 })
-app.get('/users', user.list);
+
+app.get('/', function(req, res) {
+  res.render('index');
+})
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
