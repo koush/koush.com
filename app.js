@@ -10,6 +10,44 @@ var express = require('express')
   , path = require('path');
 
 var app = express();
+var poet = require('poet')(app);
+var less = require('less');
+var markdown = require( "markdown" ).markdown;
+var hljs = require('highlight.js');
+var request = require('request');
+
+markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
+  // Inline code block. as many backticks as you like to start it
+  // Always skip over the opening ticks.
+  var m = text.match( /(`+)(\w*?[\r\n])(([\s\S]*?)\1)/ );
+  if ( m && m[3] ) {
+    var contents = m[4];
+    var lang = m[2].trim();
+    if (lang.length)
+      contents = hljs.highlight(lang, contents).value;
+    else
+      contents = hljs.highlightAuto(contents).value;
+    return [ m[1].length + m[2].length + m[3].length, [ "raw", "<pre class='highlight'>" + contents + "</pre>" ] ];
+  }
+  else {
+    // TODO: No matching end code found - warn!
+    return [ 1, "`" ];
+  }
+};
+
+poet
+  .createPostRoute()
+  .createPageRoute()
+  .createTagRoute()
+  .createCategoryRoute()
+  .init();
+
+poet.addTemplate({
+  ext : [ 'markdown', 'md' ],
+  fn : function ( string ) {
+    return markdown.toHTML( string );
+  }
+});
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -17,6 +55,7 @@ app.configure(function(){
   app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
+  app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
@@ -25,6 +64,24 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+});
+
+app.get('/AndroidAsync*', function(req, res) {
+  if (0 == req.params[0].length) {
+    res.redirect('/AndroidAsync/');
+    return;
+  }
+  var dest = 'http://gh-pages.clockworkmod.com/AndroidAsync' + req.params[0];
+  request(dest).pipe(res);
+});
+
+app.get('/UrlImageViewHelper*', function(req, res) {
+  if (0 == req.params[0].length) {
+    res.redirect('/UrlImageViewHelper/');
+    return;
+  }
+  var dest = 'http://gh-pages.clockworkmod.com/UrlImageViewHelper' + req.params[0];
+  request(dest).pipe(res);
 });
 
 app.get('/', routes.index);

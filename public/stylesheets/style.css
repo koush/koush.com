@@ -1,8 +1,12 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#body {
+    margin-top: 80px;
 }
 
-a {
-  color: #00B7FF;
+code, .highlight, pre {
+    background: black;
+    color: white;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
