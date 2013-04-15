@@ -47,6 +47,7 @@ function renderMarkdown(string, cb) {
           entry[0] = 'raw';
           entry.pop();
           entry[1] = data;
+          console.log(arguments);
           cb();
         });
       });
