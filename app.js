@@ -98,6 +98,13 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.use(function(req, res, next) {
+    if ('www.koush.com' == req.headers.host) {
+      res.redirect('http://koush.com' + req.path);
+      return;
+    }
+    next();
+  });
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
