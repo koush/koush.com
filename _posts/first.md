@@ -2,7 +2,6 @@
   "title" : "I'm Back."
 }}}
 
-
 I stopped blogging a while ago, mostly because I started using [Google+](https://plus.google.com/103583939320326217147/posts) a lot more.
 But, Google+ isn't the greatest place to write about code or technical posts. The formatting options are quite limited, and code formatting is nonexistent.
 
