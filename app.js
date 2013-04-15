@@ -111,37 +111,46 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/AndroidAsync*', function(req, res) {
-  if (0 == req.params[0].length) {
-    res.redirect('/AndroidAsync/');
-    return;
-  }
-  var dest = 'http://gh-pages.clockworkmod.com/AndroidAsync' + req.params[0];
-  request(dest).pipe(res);
-});
-
-app.get('/UrlImageViewHelper*', function(req, res) {
-  if (0 == req.params[0].length) {
-    res.redirect('/UrlImageViewHelper/');
-    return;
-  }
-  var dest = 'http://gh-pages.clockworkmod.com/UrlImageViewHelper' + req.params[0];
-  request(dest).pipe(res);
-});
-
-app.get('/', routes.index);
-app.get('/test', function(req, res) {
-  request('https://raw.github.com/koush/AndroidAsync/master/README.md', function(err, resp, body) {
-    renderMarkdown(body, function(err, md) {
+function getProject(name, req, res) {
+  async.parallel([
+    function(cb) {
+      request('https://api.github.com/repos/' + name, function(err, resp, body) {
+        cb(null, JSON.parse(body));
+      })
+    },
+    function(cb) {
+      request('https://raw.github.com/' + name + '/master/README.md', function(err, resp, body) {
+        renderMarkdown(body, cb);
+      })
+    }
+    ],
+    function(err, results) {
+      if (err) {
+        res.send(err);
+        return;
+      }
+      
+      var info = results[0];
+      var md = results[1];
       res.render('github',
         {
+          name: name,
           markdown: md,
           project: {
-          title: 'AndroidAsync'
-        }
+            owner: info.owner,
+            title: info.name,
+            description: info.description,
+          }
       });
     });
-  });
+}
+
+app.get('/', routes.index);
+app.get('/AndroidAsync', function(req, res) {
+  getProject('koush/AndroidAsync', req, res);
+})
+app.get('/UrlImageViewHelper', function(req, res) {
+  getProject('koush/UrlImageViewHelper', req, res);
 })
 app.get('/users', user.list);
 
