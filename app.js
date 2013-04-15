@@ -11,10 +11,10 @@ var express = require('express')
 
 var app = express();
 var poet = require('poet')(app);
-var less = require('less');
 var markdown = require( "markdown" ).markdown;
 var hljs = require('highlight.js');
 var request = require('request');
+var html2text = require( 'html-to-text');
 
 markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   // Inline code block. as many backticks as you like to start it
@@ -36,11 +36,25 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
 };
 
 poet
-  .createPostRoute()
-  .createPageRoute()
-  .createTagRoute()
-  .createCategoryRoute()
-  .init();
+.createPostRoute()
+.createPageRoute()
+.createTagRoute()
+.createCategoryRoute()
+.init(function(core) {
+  app.get('/rss', function ( req, res ) {
+    var posts = core.getPosts(0, 5);
+    
+    // Since the preview is automatically generated for the examples,
+    // it contains markup. Strip out the markup with the html-to-text
+    // module. Or you can specify your own specific rss description
+    // per post
+    posts.forEach(function (post) {
+      post.rssDescription = html2text.fromString(post.preview);
+    });
+
+    res.render( 'rss', { posts: posts });
+  });  
+});
 
 poet.addTemplate({
   ext : [ 'markdown', 'md' ],
