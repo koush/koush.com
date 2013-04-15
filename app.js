@@ -34,33 +34,6 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   }
 };
 
-poet
-.createPostRoute()
-.createPageRoute()
-.createTagRoute()
-.createCategoryRoute()
-.init(function(core) {
-  app.get('/rss', function ( req, res ) {
-    var posts = core.getPosts(0, 5);
-    
-    // Since the preview is automatically generated for the examples,
-    // it contains markup. Strip out the markup with the html-to-text
-    // module. Or you can specify your own specific rss description
-    // per post
-    posts.forEach(function (post) {
-      post.rssDescription = html2text.fromString(post.preview);
-    });
-
-    res.render( 'rss', { posts: posts });
-  });
-  
-  
-  app.get('/', function(req, res) {
-    var posts = core.getPosts(0, 5);
-    res.render('index', { posts: posts });
-  })
-});
-
 function renderMarkdown(string, cb) {
   var data = markdown.parse(string);
   var snippets = [];
@@ -93,16 +66,13 @@ function renderMarkdown(string, cb) {
   });
 }
 
-poet.addTemplate({
-  ext : [ 'markdown', 'md' ],
-  fn : renderMarkdown
-});
-
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  console.log('configing');
   app.use(function(req, res, next) {
+    console.log(req.headers);
     console.log(req.headers.host);
     if ('www.koush.com' == req.headers.host) {
       res.redirect('http://koush.com' + req.path);
@@ -121,6 +91,39 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
+});
+
+
+poet
+.createPostRoute()
+.createPageRoute()
+.createTagRoute()
+.createCategoryRoute()
+.init(function(core) {
+  app.get('/rss', function ( req, res ) {
+    var posts = core.getPosts(0, 5);
+    
+    // Since the preview is automatically generated for the examples,
+    // it contains markup. Strip out the markup with the html-to-text
+    // module. Or you can specify your own specific rss description
+    // per post
+    posts.forEach(function (post) {
+      post.rssDescription = html2text.fromString(post.preview);
+    });
+
+    res.render( 'rss', { posts: posts });
+  });
+  
+  
+  app.get('/', function(req, res) {
+    var posts = core.getPosts(0, 5);
+    res.render('index', { posts: posts });
+  })
+});
+
+poet.addTemplate({
+  ext : [ 'markdown', 'md' ],
+  fn : renderMarkdown
 });
 
 function getProject(name, req, res) {

@@ -32,3 +32,4 @@ Static sites are limited. Sometimes I want to do some server side scripting in m
 
 ##### So...
 Expect more posts here. I hope.
+
