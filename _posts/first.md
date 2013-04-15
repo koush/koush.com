@@ -28,7 +28,9 @@ for (int i = 0; i <10; i++) {
 ```
 
 ##### Simple Scripting
-Static sites are limited. Sometimes I want to do some server side scripting in my posts.
+Furthermore, static sites are limited. Sometimes I want to do some server side scripting in my posts.
+This gives me the flexibility of being able to [hack on the site](https://github.com/koush/koush.com/blob/master/app.js)
+and easily add dynamic content.
 
 ##### So...
 Expect more posts here. I hope.
