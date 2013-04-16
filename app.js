@@ -163,9 +163,10 @@ poet
     getProject('koush/UrlImageViewHelper', req, res);
   })
 
-  http.createServer(app).listen(app.get('port'), function(){
+  var server = http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
   });
-  
+
+  require('./tests').route(server, app);
 });
 
