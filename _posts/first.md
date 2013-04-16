@@ -24,6 +24,9 @@ I blog about code fairly often, so I need code snippets that look good. For exam
 for (int i = 0; i <10; i++) {
   // this is a comment
   System.out.println("hello world " + i);
+
+  // this is a comment
+  System.out.println("hello world 222 " + i);
 }
 ```
 

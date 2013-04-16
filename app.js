@@ -47,7 +47,6 @@ function renderMarkdown(string, cb) {
           entry[0] = 'raw';
           entry.pop();
           entry[1] = data;
-          console.log(arguments);
           cb();
         });
       });
@@ -71,10 +70,7 @@ app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  console.log('configing');
   app.use(function(req, res, next) {
-    console.log(req.headers);
-    console.log(req.headers.host);
     if ('www.koush.com' == req.headers.host) {
       res.redirect('http://koush.com' + req.path);
       return;
