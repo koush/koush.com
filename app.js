@@ -71,6 +71,7 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(function(req, res, next) {
+    console.log(req.headers.host);
     if ('www.koush.com' == req.headers.host) {
       res.redirect('http://koush.com' + req.path);
       return;
