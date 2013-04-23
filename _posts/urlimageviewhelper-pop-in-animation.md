@@ -43,4 +43,5 @@ UrlImageViewHelper.setUrlDrawable(iv, getItem(position), R.drawable.transparent,
 
 #### The Library
 
-Head on over to the [download](/UrlImageViewHelper) page to grab the library.
+Head on over to the [download](/UrlImageViewHelper) page to grab the library. The included sample
+has been updated to demonstrate the scale in animation.
