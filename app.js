@@ -15,6 +15,19 @@ var request = require('request');
 var html2text = require( 'html-to-text');
 var highlight = require('pygments').colorize;
 var async = require('async');
+var url = require('url');
+var querystring = require('querystring');
+
+if (typeof String.prototype.startsWith != 'function') {
+  String.prototype.startsWith = function (str){
+    return this.indexOf(str) == 0;
+  };
+}
+if (typeof String.prototype.endsWith != 'function') {
+  String.prototype.endsWith = function (str){
+    return this.slice(-str.length) == str;
+  };
+}
 
 markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   // Inline code block. as many backticks as you like to start it
@@ -36,6 +49,7 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
 
 function renderMarkdown(string, cb) {
   var data = markdown.parse(string);
+  // console.log(data);
   var snippets = [];
   
   function recurse(entry) {
@@ -51,6 +65,24 @@ function renderMarkdown(string, cb) {
         });
       });
     }
+    else if (entry[0] == 'img' && entry.length == 2) {
+      
+      var img = entry[1];
+      if (img.href.startsWith('http://www.youtube.com')) {
+        entry[0] = 'center';
+        var q = querystring.parse(url.parse(img.href).query);
+        entry.pop();
+        var youtube = {};
+        youtube.width = '420';
+        youtube.height = '315';
+        youtube.src = 'http://www.youtube.com/embed/' + q.v;
+        youtube.frameborder= '0';
+        youtube.allowfullscreen = '';
+        var center = ['iframe', youtube];
+        entry.push(center);
+      }
+    }
+    
     for (var child in entry) {
       child = entry[child];
       if (typeof child == 'object') {
