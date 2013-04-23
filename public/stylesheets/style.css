@@ -10,3 +10,7 @@ code, .highlight, pre {
 .uppercase {
     text-transform: uppercase;
 }
+
+.black {
+    color: black;
+}
