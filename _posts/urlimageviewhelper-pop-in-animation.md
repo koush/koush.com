@@ -1,5 +1,5 @@
 {{{
-  "title" : "Fancy Android URL ImageView Animations",
+  "title" : "Loading and Animating an Android ImageView from a URL",
   "date": "4-22-2003"
 }}}
 
