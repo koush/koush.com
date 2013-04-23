@@ -4,8 +4,9 @@
 }}}
 
 [UrlImageViewHelper](/UrlImageViewHelper) will fill an ImageView with an image that is found at a URL. Loading image from a url
-into and showing it in a ImageView is nearly ubiquitous amongst Android apps. Any social media client will do this.
-This library makes it easy.
+into and showing it in a ImageView is nearly ubiquitous amongst Android apps. For example, most social media clients have this
+functionality for profile pictures, photos, etc.
+This library makes the download and display easy.
 
 How you normally load a url into an ImageView with the library:
 
@@ -14,7 +15,7 @@ UrlImageViewHelper.setUrlDrawable(imageView, "http://example.com/image.png");
 ```
 
 More polished apps will show a simple animation, generally a scale or pop in, as the image finishes loading.
-It's a nice touch and pleasing eye candy. Here's how you can do that with the UrlImageViewHelper project.
+It's a nice touch and users will appreciate it. Here's how you can do that with the UrlImageViewHelper project.
 
 
 #### The Code
@@ -24,6 +25,7 @@ UrlImageViewHelper.setUrlDrawable(iv, getItem(position), R.drawable.transparent,
     @Override
     public void onLoaded(ImageView imageView, Bitmap loadedBitmap,
                           String url, boolean loadedFromCache) {
+        // only show the animation if it was loaded from network or disk...
         if (!loadedFromCache) {
             ScaleAnimation scale = new ScaleAnimation(0, 1, 0, 1,
                 ScaleAnimation.RELATIVE_TO_SELF, .5f,
