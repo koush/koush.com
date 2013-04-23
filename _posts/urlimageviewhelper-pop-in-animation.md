@@ -1,6 +1,6 @@
 {{{
   "title" : "Loading and Animating an Android ImageView from a URL",
-  "date": "4-22-2003"
+  "date": "4-22-2013"
 }}}
 
 [UrlImageViewHelper](/UrlImageViewHelper) will fill an ImageView with an image that is found at a URL. Loading image from a url
