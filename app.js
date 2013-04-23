@@ -78,7 +78,7 @@ app.configure(function(){
     }
     next();
   });
-  app.use(express.favicon());
+  app.use(express.favicon(path.join(process.cwd(), 'public/favicon.ico')));
   app.use(express.logger('dev'));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.bodyParser());
