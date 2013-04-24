@@ -182,7 +182,13 @@ poet
     res.header('Cache-Control', 'max-age=300');
     async.parallel([
       function(cb) {
-        request('https://api.github.com/repos/' + name, function(err, resp, body) {
+        request({
+          headers: {
+            'User-Agent': 'node.js'
+          },
+          url: 'https://api.github.com/repos/' + name
+        }, function(err, resp, body) {
+          console.log(arguments);
           cb(null, JSON.parse(body));
         })
       },
