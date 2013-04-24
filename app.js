@@ -128,6 +128,7 @@ app.configure(function(){
 });
 
 app.get('/post-content/*', function(req, res) {
+  res.header('Cache-Control', 'max-age=300');
   var f = req.params[0];
   f = path.join(__dirname, '_posts', f);
   res.sendfile(f);
