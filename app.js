@@ -67,7 +67,6 @@ function renderMarkdown(string, cb) {
     }
     else if (entry[0] == 'img' && entry.length == 2) {
       var img = entry[1];
-      console.log(img);
       if (img.href.startsWith('http://www.youtube.com')) {
         entry[0] = 'center';
         var q = querystring.parse(url.parse(img.href).query);
@@ -111,10 +110,15 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(function(req, res, next) {
-    console.log(req.headers.host);
     if ('www.koush.com' == req.headers.host) {
       res.redirect('http://koush.com' + req.path);
       return;
+    }
+    next();
+  });
+  app.use(function(req, res, next) {
+    if (req.path.startsWith('/post')) {
+      res.header('Cache-Control', 'max-age=300');
     }
     next();
   });
