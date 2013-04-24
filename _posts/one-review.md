@@ -65,7 +65,7 @@ The Sense Home widgets and feeds are nice, and surprisingly usable. Everything f
 > And then there's the Sense App Drawer...
 
 The Sense home screen is not bad, but as mentioned in other reviews, the app drawer renders it nearly unusable...
-it only houses a 3x3 grid of icons. That isn't nearly enough being shown on the page to actually find an app once you start
+it only houses a 3x3 (4x3 after the first page) grid of icons. That isn't nearly enough being shown on the page to actually find an app once you start
 getting past more than what is installed out of the box. And for some odd reason, the app tray also contains the enormous clock and
 weather widgets, which is also affixed to the default home screen.
 
