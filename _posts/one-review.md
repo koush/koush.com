@@ -104,7 +104,7 @@ partition. Essentially, it broke untethered ROM upgrades (fastboot would still w
 mechanism was completely unexpected, and a much needed and welcome improvement.
 
 On the CyanogenMod side of things, this is an 8064 chipset (Qualcomm). Qualcomm has been the easiest SoC to work with,
-since has the best open source support via the Code Aurora forums. I'm tentatively hopeful about the future of CyanogenMod
+since it has the best open source support via the Code Aurora forums. I'm tentatively hopeful about the future of CyanogenMod
 support on the HTC One.
 
 ##### Conclusion
