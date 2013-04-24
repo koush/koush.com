@@ -116,17 +116,17 @@ app.configure(function(){
     }
     next();
   });
-  // app.use(function(req, res, next) {
-  //   if (req.path.startsWith('/post')
-  //       || req.path.startsWith('/stylesheets')
-  //       || req.path.startsWith('/bootstrap')
-  //       || req.path.startsWith('/images')
-  //       || req.path.startsWith('/github')
-  //       || req.path.startsWith('/javascripts')) {
-  //     res.header('Cache-Control', 'max-age=300');
-  //   }
-  //   next();
-  // });
+  app.use(function(req, res, next) {
+    if (req.path.startsWith('/post')
+        || req.path.startsWith('/stylesheets')
+        || req.path.startsWith('/bootstrap')
+        || req.path.startsWith('/images')
+        || req.path.startsWith('/github')
+        || req.path.startsWith('/javascripts')) {
+      res.header('Cache-Control', 'max-age=300');
+    }
+    next();
+  });
   app.use(express.favicon(path.join(process.cwd(), 'public/favicon.ico')));
   app.use(express.logger('dev'));
   app.use(require('less-middleware')({ src: __dirname + '/public' }));
