@@ -6,7 +6,7 @@
 ![](one-review/title.jpg)
 
 Leading up to the release of the HTC One, I was quite excited. From the early photos I'd seen of it, the production quality and attention to detail
-on the industrial design seemed rival that of Apple's iPhone. Of course, I was pleased by the hardware specs, but that wasn't really the main
+on the industrial design seemed to rival that of Apple's iPhone. Of course, I was pleased by the hardware specs, but that wasn't really the main
 selling point for me:
 
 #### Hardware
@@ -70,6 +70,8 @@ The Sense home screen is not bad, but as mentioned in other reviews, the app dra
 it only houses a 3x3 (4x3 after the first page) grid of icons. That isn't nearly enough being shown on the page to actually find an app once you start
 getting past more than what is installed out of the box. And for some odd reason, the app tray also contains the enormous clock and
 weather widgets, which is also affixed to the default home screen.
+
+_Update: you can change the grid size to 5x4 via somewhat difficult to find setting._
 
 ![](one-review/sense.png)
 
