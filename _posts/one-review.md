@@ -92,6 +92,8 @@ I'm going to talk about this, because it matters to me. But if we're being hones
 is unlocked has no impact on the actual sales of the phones. It just makes a small, very vocal, minority of users upset. Though,
 arguably, alienating a population of developers is probably not the best way to garner developer adoption either.
 
+The high level takeaway is that the unlock behaves just like any other Nexus device. This is awesome.
+
 I was incredibly surprised to find that the HTCDev unlock even worked on the AT&T variant of the HTC One. AT&T and Verizon have both
 been pushing OEMs harder to completely lock down their phones, and remove all unlock mechanisms altogether. For example, the Samsung Galaxy S4
 will be shipping _locked_ on both Verizon and AT&T. Whether this was a mistake, or an oversight, remains to be seen.
