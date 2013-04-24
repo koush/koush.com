@@ -20,10 +20,11 @@ Hardware innovation outpacing software complexity is following suit on mobile de
 And the hardware differentiation at the top end of the mobile phone spectrum is minimal as well. Going forward, software and services will become the
 value add on top of a OEM's offering.
 
-The point being, I don't feel the hardware specs really differentiate the top end phones. That said, the HTC One still manages to set itself apart from
-the other offerings currently on the market by boasting a shiny 1080p display and front facing speakers that sound surprisingly great. It's the sharpest display I've seen on a phone to date.
-I've also been geeking out with the on board TV Remote (powered by [Peel](http://www.engadget.com/2010/12/08/peel-turns-your-iphone-into-a-universal-remote-using-a-wirele/), which
-comes with a full fledged API available via the HTCDev website.
+The point being, I don't feel the hardware specs really differentiate the top end phones. Battery life, call quality, etc all seemed to be around the norm.
+That said, the HTC One still manages to set itself apart from the other offerings currently on the market by boasting a shiny 1080p display and front facing speakers
+that sound surprisingly great. It's the sharpest display I've seen on a phone to date. I've also been geeking out with the on board TV Remote
+(powered by [Peel](http://www.engadget.com/2010/12/08/peel-turns-your-iphone-into-a-universal-remote-using-a-wirele/), which comes with a full fledged API
+available via the HTCDev website.
 
 I won't be doing any benchmarks in this review, because they are silly. The only users that care about benchmarks are the users running benchmarks.
 
