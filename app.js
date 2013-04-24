@@ -66,8 +66,8 @@ function renderMarkdown(string, cb) {
       });
     }
     else if (entry[0] == 'img' && entry.length == 2) {
-      
       var img = entry[1];
+      console.log(img);
       if (img.href.startsWith('http://www.youtube.com')) {
         entry[0] = 'center';
         var q = querystring.parse(url.parse(img.href).query);
@@ -80,6 +80,14 @@ function renderMarkdown(string, cb) {
         youtube.allowfullscreen = '';
         var center = ['iframe', youtube];
         entry.push(center);
+      }
+      else {
+        if (!img.href.startsWith('http')) {
+          img.href = '/post-content/' + img.href;
+        }
+        entry[0] = 'center';
+        entry[1] = ['img', img];
+        return;
       }
     }
     
@@ -117,6 +125,12 @@ app.configure(function(){
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
+});
+
+app.get('/post-content/*', function(req, res) {
+  var f = req.params[0];
+  f = path.join(__dirname, '_posts', f);
+  res.sendfile(f);
 });
 
 app.configure('development', function(){
