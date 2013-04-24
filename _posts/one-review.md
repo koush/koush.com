@@ -9,7 +9,7 @@ Leading up to the release of the HTC One, I was quite excited. From the early ph
 on the industrial design seemed rival that of Apple's iPhone. Of course, I was pleased by the hardware specs, but that wasn't really the main
 selling point for me:
 
-##### Hardware
+#### Hardware
 
 Hardware is becoming commoditized, at least relatively to the software running on it. Two years ago, all the OEMs were blazing a trail, obsoleting their own
 products within a matter months. This is quite similar to the PC era circa 10-15 years ago, where every manufacturer was vying to have more megahertz and gigabits.
@@ -31,13 +31,13 @@ I won't be doing any benchmarks in this review, because they are silly.
 In short, the hardware is incredible, and easily the best of breed on the market. It is  an iterative improvement over the Nexus 4 and nearly
 exactly the same as the Samsung Galaxy S4. In The Future, software will matter more than hardware.
 
-##### No SD Card?
+#### No SD Card?
 
 This may be a "deal breaker" for some people, but I don't even take this into consideration when buying a phone anymore.
 SD Cards are clunky. Internal phone storage has plenty of space, and cloud storage makes your data capacity effectively
 unlimited.
 
-##### Industrial Design
+#### Industrial Design
 
 I've alluded to what I think matters to the end user: software and industrial design.
 These pieces of carved aluminum and glass are status symbols, they are fashion accessories. They should be beautiful and feel expensive.
@@ -54,7 +54,7 @@ somewhere, a design team worked around the clock to get every edge, angle, and s
 
 The phone is seamless. Literally. I can't figure out how to open it. Not that I care to.
 
-##### Software
+#### Software
 
 I haven't used Sense for a couple versions. Earlier iterations were bulky and clunky, the phone would barely chug along. I can't believe I'm saying this,
 but Sense 5 is _Not That Bad_. I think that having such a higher resolution display allowed the design team to no longer
@@ -80,13 +80,13 @@ The camera image quality has been hit or miss for me. Videos come out great, but
 I haven't ruled out user error yet. But taking shots with my iPhone, on average, results in better photos. But the images that do come out well, look incredible. I've
 shared an [album](https://plus.google.com/photos/103583939320326217147/albums/5870258963803543697) on Google+ with a bunch of my HTC One photos.
 
-##### Carrier Bloat
+#### Carrier Bloat
 
 I'm not sure how long this has been around, but HTC has kindly provided users with a way to disable apps, including the ones preinstalled
 by the carrier. It took me a few minutes, but I was able to disable all the AT&T bloatware, so I could get
 down to a clean/minimal experience.
 
-##### Hackability
+#### Hackability
 
 I'm going to talk about this, because it matters to me. But if we're being honest, how hackable a phone is, and whether the bootloader
 is unlocked has no impact on the actual sales of the phones. It just makes a small, very vocal, minority of users upset. Though,
