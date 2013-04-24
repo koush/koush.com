@@ -129,7 +129,7 @@ app.configure(function(){
   });
   app.use(express.favicon(path.join(process.cwd(), 'public/favicon.ico')));
   app.use(express.logger('dev'));
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
+  // app.use(require('less-middleware')({ src: __dirname + '/public' }));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
