@@ -21,12 +21,11 @@ And the hardware differentiation at the top end of the mobile phone spectrum is 
 value add on top of a OEM's offering.
 
 The point being, I don't feel the hardware specs really differentiate the top end phones. That said, the HTC One still manages to set itself apart from
-the other offerings currently on the market by boasting a shiny 1080p display. It's the sharpest display I've seen on a phone to date.
-I've also geeking out with the on board TV Remote (powered by [Peel](http://www.engadget.com/2010/12/08/peel-turns-your-iphone-into-a-universal-remote-using-a-wirele/)).
+the other offerings currently on the market by boasting a shiny 1080p display and front facing speakers that sound surprisingly great. It's the sharpest display I've seen on a phone to date.
+I've also been geeking out with the on board TV Remote (powered by [Peel](http://www.engadget.com/2010/12/08/peel-turns-your-iphone-into-a-universal-remote-using-a-wirele/), which
+comes with a full fledged API available via the HTCDev website.
 
-I won't be doing any benchmarks in this review, because they are silly.
-
-> The only users that care about benchmarks are the users running benchmarks.
+I won't be doing any benchmarks in this review, because they are silly. The only users that care about benchmarks are the users running benchmarks.
 
 In short, the hardware is incredible, and easily the best of breed on the market. It is  an iterative improvement over the Nexus 4 and nearly
 exactly the same as the Samsung Galaxy S4. In The Future, software will matter more than hardware.
@@ -39,7 +38,7 @@ unlimited.
 
 #### Industrial Design
 
-I've alluded to what I think matters to the end user: software and industrial design.
+I've alluded to what I think matters to the end user: software and industrial design (and brute force marketing).
 These pieces of carved aluminum and glass are status symbols, they are fashion accessories. They should be beautiful and feel expensive.
 Phones are luxury items. They are jewelry. They are the new rims you put on your car. Functionally, the aesthetics serve no purpose, yet
 they matter nonetheless.
@@ -49,7 +48,7 @@ phones anymore, but they command a larger market share at the higher income brac
   
 ![](one-review/demographics.png)
 
-That said, the HTC One is now the most beautiful phone on the market. It's prettier than my iPhone. You can tell that
+That said, the HTC One is the most beautiful phone on the market. It's prettier than my iPhone. You can tell that
 somewhere, a design team worked around the clock to get every edge, angle, and surface perfect.
 
 The phone is seamless. Literally. I can't figure out how to open it. Not that I care to.
@@ -61,8 +60,10 @@ but Sense 5 is _Not That Bad_. I think that having such a higher resolution disp
 limit themselves to device constraints, and allow their visions as prototyped in Photoshop to become a reality.
 
 The Sense Home widgets and feeds are nice, and surprisingly usable. Everything feels smooth and snappy. The animations are subtle, not overdone.
+HTC Zoe lets you create decently cool video snippets in a fraction of the time it would take a user to do it themselves. It
+wasn't really my bag, but I can see users enjoying and using it.
 
-> And then there's the Sense App Drawer...
+##### And then there's the Sense App Drawer...
 
 The Sense home screen is not bad, but as mentioned in other reviews, the app drawer renders it nearly unusable...
 it only houses a 3x3 (4x3 after the first page) grid of icons. That isn't nearly enough being shown on the page to actually find an app once you start
