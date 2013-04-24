@@ -77,7 +77,7 @@ I actually found myself enjoying Sense.
 #### Camera
 
 The camera image quality has been hit or miss for me. Videos come out great, but photos seem to be inconsistent (color issues, not sure).
-I haven't ruled out user error yet. But my iPhone, on average, better photos. But the images that do come out well, look incredible. I've
+I haven't ruled out user error yet. But taking shots with my iPhone, on average, results in better photos. But the images that do come out well, look incredible. I've
 shared an [album](https://plus.google.com/photos/103583939320326217147/albums/5870258963803543697) on Google+ with a bunch of my HTC One photos.
 
 ##### Carrier Bloat
