@@ -17,6 +17,7 @@ var highlight = require('pygments').colorize;
 var async = require('async');
 var url = require('url');
 var querystring = require('querystring');
+var spawn = require('child_process').spawn;
 
 if (typeof String.prototype.startsWith != 'function') {
   String.prototype.startsWith = function (str){
@@ -47,6 +48,37 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   }
 };
 
+pygmentsExecute = function(target, callback) {
+  var pyg = spawn(path.join(__dirname, 'pygments', 'main.py'));
+  var chunks = [];
+
+  pyg.stdout.on('data', function(chunk) {
+    chunks.push(chunk);
+  });
+
+  pyg.stderr.on('data', function (data) {
+    console.log(data.toString());
+  });
+
+  pyg.on('exit', function() {
+    var length = 0;
+    chunks.forEach(function(chunk) {
+      length += chunk.length;
+    });
+    var content = new Buffer(length);
+    var index = 0;
+    chunks.forEach(function(chunk) {
+      chunk.copy(content, index, 0, chunk.length);
+      index += chunk.length;
+    });
+    callback(content.toString());
+  });
+
+  pyg.stdin.write(target);
+  pyg.stdin.end();
+};
+
+
 function renderMarkdown(string, cb) {
   var data = markdown.parse(string);
   // console.log(data);
@@ -57,7 +89,9 @@ function renderMarkdown(string, cb) {
       var lang = entry[1];
       var contents = entry[2];
       snippets.push(function(cb) {
-        highlight(contents, lang, 'html', function(data) {
+  
+        // highlight(contents, lang, 'html', function(data) {
+        pygmentsExecute(contents, function(data) {
           entry[0] = 'raw';
           entry.pop();
           entry[1] = data;

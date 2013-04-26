@@ -59,8 +59,8 @@ What's this same function look like with 'await'?
 
 ```javascript
 var request = require('request');
-// mark the function as suspendable via the added 'function$' keyword
-function$ downloadThings() {
+// mark the function as suspendable via the added '$function' keyword
+$function downloadThings() {
   await err, res, data1 = request('http://foo.com/file1.txt');
   if (err)
     return err;
@@ -96,7 +96,7 @@ Consider the following program written without generators. The entire fibonacci 
 #### Normal Fibonacci
 
 ```javascript
-function fibnormal(count) {
+function fibonacci(count) {
   if (!count)
     return [];
   if (count == 1)
@@ -109,7 +109,7 @@ function fibnormal(count) {
   return ret;
 }
 
-console.log(fibnormal(10));
+console.log(fibonacci(10));
 
 // this will print the following:
 [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
@@ -118,10 +118,11 @@ console.log(fibnormal(10));
 #### Generator Fibonacci
 
 In this generator example, note that the 'while' loop seems as if the program would continue infinitely...
-but it does not due to the 'yield' which suspends execution until the next iteration.
+but it does not due to the 'yield' which suspends execution until the next iteration. The fibonacci series
+is generated on an as needed basis.
 
 ```javascript
-function$ fib() {
+$function fibonacci() {
   var first = 1;
   yield first;
   var second = 1;
@@ -131,10 +132,10 @@ function$ fib() {
     var sum = first + second;
     yield sum;
     first = second;
-    second = sum
+    second = sum;
   }
 }
-var fibgen = fib();
+var fibgen = fibonacci();
 var val;
 for (var i = 0; i < 10; i++) {
   console.log(fibgen.next());
