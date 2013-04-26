@@ -144,6 +144,15 @@ for (var i = 0; i < 10; i++) {
 // this prints 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 (on separate lines)
 ```
 
+### Upstream
+
+Chances of this being taken upstream are minimal. I imagine the V8 guys will eventually get around to doing their own proper implementation.
+Admittedly, my understanding of V8 internals and optimization is naive. And the node.js guys will want to remain on V8 proper.
+So, in the meantime, I'll continue maintaining this fork.
+
+If you're a CoffeeScript fan and want similar functionality, you may want to check out [IcedCoffeeScript](http://maxtaco.github.io/coffee-script/).
+It brings async/defer to CoffeeScript.
+
 ### How Can I Get This?!
 
 My modified version of node.js/V8 is on [Github](https://github.com/koush/node/tree/async-v0.10.x). Make sure you check out the async-v0.10.x branch.
