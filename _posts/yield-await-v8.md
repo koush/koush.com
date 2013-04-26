@@ -3,7 +3,7 @@
   "date": "4-24-2013"
 }}}
 
-A little over a year ago, I [added 'await' support to node.js](https://github.com/koush/node/wiki/%22async%22-support-in-node.js)
+A little over a year ago, I [added 'await' support to node.js](https://github.com/koush/node/wiki/%22await%22-and-%22yield%22-support-in-node.js)
 (Chrome V8). I had also planned on adding support for 'yield', but never got around to it. But last night, I needed a break from
 another project I'd been working on, and decided to try my hand at implementing 'yield'.
 
