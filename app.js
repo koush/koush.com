@@ -10,10 +10,8 @@ var express = require('express')
 var app = express();
 var poet = require('poet')(app);
 var markdown = require( "markdown" ).markdown;
-var hljs = require('highlight.js');
 var request = require('request');
 var html2text = require( 'html-to-text');
-var highlight = require('pygments').colorize;
 var async = require('async');
 var url = require('url');
 var querystring = require('querystring');
@@ -35,12 +33,8 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   // Always skip over the opening ticks.
   var m = text.match( /(`+)(\w*?[\r\n])(([\s\S]*?)\1)/ );
   if ( m && m[3] ) {
-    var contents = m[4];
     var lang = m[2].trim();
-    contents = hljs.highlight(lang, contents).value;
-    // return [ m[1].length + m[2].length + m[3].length, [ "raw", "<pre class='highlight'>" + contents + "</pre>" ] ];
     return [ m[1].length + m[2].length + m[3].length, [ "pygmentize", lang, m[4] ] ];
-    
   }
   else {
     // TODO: No matching end code found - warn!
@@ -89,8 +83,6 @@ function renderMarkdown(string, cb) {
       var lang = entry[1];
       var contents = entry[2];
       snippets.push(function(cb) {
-  
-        // highlight(contents, lang, 'html', function(data) {
         pygmentsExecute(contents, function(data) {
           entry[0] = 'raw';
           entry.pop();
