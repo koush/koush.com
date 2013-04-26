@@ -22,12 +22,9 @@ You can view/fork/edit [this post](https://github.com/koush/koush.com/blob/maste
 I blog about code fairly often, so I need code snippets that look good. For example:
 
 ```java
-for (int i = 0; i <10; i++) {
+for (int i = 0; i < 10; i++) {
   // this is a comment
   System.out.println("hello world " + i);
-
-  // this is a comment
-  System.out.println("hello world 222 " + i);
 }
 ```
 
