@@ -16,6 +16,7 @@ var async = require('async');
 var url = require('url');
 var querystring = require('querystring');
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 
 if (typeof String.prototype.startsWith != 'function') {
   String.prototype.startsWith = function (str){
@@ -43,29 +44,8 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
 };
 
 pygmentsExecute = function(target, callback) {
-  var pyg = spawn(path.join(__dirname, 'pygments', 'main.py'));
-  var chunks = [];
-
-  pyg.stdout.on('data', function(chunk) {
-    chunks.push(chunk);
-  });
-
-  pyg.stderr.on('data', function (data) {
-    console.log(data.toString());
-  });
-
-  pyg.on('exit', function() {
-    var length = 0;
-    chunks.forEach(function(chunk) {
-      length += chunk.length;
-    });
-    var content = new Buffer(length);
-    var index = 0;
-    chunks.forEach(function(chunk) {
-      chunk.copy(content, index, 0, chunk.length);
-      index += chunk.length;
-    });
-    callback(content.toString());
+  var pyg = exec(path.join(__dirname, 'pygments', 'main.py'), function(err, stdout, stderr) {
+    callback(stdout);
   });
 
   pyg.stdin.write(target);
