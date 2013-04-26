@@ -51,6 +51,8 @@ downloadThings(function(error, data) {
 });
 ```
 
+Om nom nom, callback spaghetti!
+
 #### Await
 
 What's this same function look like with 'await'?
@@ -76,7 +78,8 @@ downloadThings(function(error, data) {
 ```
 
 Keep in mind, that 'await' does _not_ block. It suspends execution, by turning everything below the await into the callback
-body. The 'await' is syntactic sugar. The two examples are essentially equivalent.
+body. The 'await' is syntactic sugar. The two examples are essentially equivalent. You can think of 'await' as an
+asynchronous 'var' declaration.
 
 ### Yield
 
