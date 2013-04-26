@@ -62,6 +62,8 @@ function renderMarkdown(string, cb) {
           entry.pop();
           entry[1] = data;
           cb();
+        }, {
+          'F': "highlight:names='err'"
         });
       });
     }

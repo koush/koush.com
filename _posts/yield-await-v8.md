@@ -59,8 +59,8 @@ What's this same function look like with 'await'?
 
 ```javascript
 var request = require('request');
-// mark the function as suspendable via the added '$function' keyword
-$function downloadThings() {
+// mark the function as suspendable via the added 'function$' keyword
+function$ downloadThings() {
   await err, res, data1 = request('http://foo.com/file1.txt');
   if (err)
     return err;
@@ -121,7 +121,7 @@ In this generator example, note that the 'while' loop seems as if the program wo
 but it does not due to the 'yield' which suspends execution until the next iteration.
 
 ```javascript
-$function fib() {
+function$ fib() {
   var first = 1;
   yield first;
   var second = 1;
