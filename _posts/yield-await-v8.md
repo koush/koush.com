@@ -21,7 +21,7 @@ them to the caller:
 
 ```javascript
 // import common node.js request library method
-// which takes an url and a callback.
+// which takes a url and a callback.
 // available via "npm install request".
 var request = require('request');
 
@@ -31,7 +31,6 @@ function downloadThings(callback) {
       callback(err);
       return;
     }
-
     request('http://foo.com/file2.txt', function(err, res, data2) {
       if (err) {
         callback(err);
