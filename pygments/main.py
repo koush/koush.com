@@ -2,9 +2,16 @@
 
 import sys
 import pygments
+import pygments.lexers
 from pygments.formatters import HtmlFormatter
 
 from async import AsyncLexer
 
 data = sys.stdin.read()
-print pygments.highlight(data, AsyncLexer(), HtmlFormatter())
+
+if sys.argv[1] == 'javascript':
+    lexer = AsyncLexer()
+else:
+    lexer = pygments.lexers.get_lexer_by_name(sys.argv[1])
+
+print pygments.highlight(data, lexer, HtmlFormatter())

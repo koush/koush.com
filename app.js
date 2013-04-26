@@ -43,8 +43,8 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
   }
 };
 
-pygmentsExecute = function(target, callback) {
-  var pyg = exec(path.join(__dirname, 'pygments', 'main.py'), function(err, stdout, stderr) {
+pygmentsExecute = function(target, lang, callback) {
+  var pyg = exec(path.join(__dirname, 'pygments', 'main.py') + ' ' + lang, function(err, stdout, stderr) {
     callback(stdout);
   });
 
@@ -63,7 +63,7 @@ function renderMarkdown(string, cb) {
       var lang = entry[1];
       var contents = entry[2];
       snippets.push(function(cb) {
-        pygmentsExecute(contents, function(data) {
+        pygmentsExecute(contents, lang, function(data) {
           entry[0] = 'raw';
           entry.pop();
           entry[1] = data;
