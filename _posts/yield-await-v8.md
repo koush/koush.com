@@ -108,9 +108,7 @@ function fibonacci(count) {
   
   return ret;
 }
-
 console.log(fibonacci(10));
-
 // this will print the following:
 [ 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 ]
 ```
@@ -140,7 +138,6 @@ var val;
 for (var i = 0; i < 10; i++) {
   console.log(fibgen.next());
 }
-
 // this prints 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 (on separate lines)
 ```
 
