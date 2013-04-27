@@ -10,12 +10,12 @@
             img(src='/images/share.png')
           ul.dropdown-menu.pull-right
             li
-              a(href='https://plus.google.com/share?url=' + encodeURIComponent(post.url), onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+              a(href='https://plus.google.com/share?url=' + encodeURIComponent('http://koush.com' + post.url), onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
                 span
                   img(src='https://www.gstatic.com/images/icons/gplus-16.png')
                   span=' Google+'
             li
-              a(href="https://twitter.com/share?via=koush&url=" + encodeURIComponent(post.url) + '&text=' + post.title, onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+              a(href="https://twitter.com/share?via=koush&url=" + encodeURIComponent('http://koush.com' + post.url) + '&text=' + post.title, onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
                 span
                   img(src='/images/twitter.png')
                   span=' Twitter'
