@@ -1,7 +1,29 @@
-div.post.well
-  h3
-    a(href=post.url)
-      = post.title
+.post.well
+  .row-fluid
+    .span8
+      h3
+        a(href=post.url)=post.title
+    .span2.pull-right
+      ul.nav.nav-pills.pull-right
+        li.dropdown
+          a.dropdown-toggle(href='#', data-toggle="dropdown").share
+            img(src='/images/share.png')
+          ul.dropdown-menu.pull-right
+            li
+              a(href='https://plus.google.com/share?url=' + encodeURIComponent(post.url), onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+                span
+                  img(src='https://www.gstatic.com/images/icons/gplus-16.png')
+                  span=' Google+'
+            li
+              a(href="https://twitter.com/share?via=koush&url=" + encodeURIComponent(post.url) + '&text=' + post.title, onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+                span
+                  img(src='/images/twitter.png')
+                  span=' Twitter'
+            li
+              a(href='https://github.com/koush/koush.com/tree/master/_posts/' + post.file)
+                span
+                  img(src='/images/github.png')
+                  span=' Fork me on Github'
   span.date #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
   br
   br
