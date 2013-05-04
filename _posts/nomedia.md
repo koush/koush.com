@@ -31,8 +31,8 @@ if (lastSlash >= 0 && lastSlash + 2 < path.length()) {
     }
 ```
 
-Well, apparently '._' prefixed files are also considered "isNoMediaFile"! This is there because mounting the
-external SD card on a Mac often results in the Mac creating '._' files in various directories. This is the Mac
+Well, apparently '.\_' prefixed files are also considered "isNoMediaFile"! This is there because mounting the
+external SD card on a Mac often results in the Mac creating '.\_' files in various directories. This is the Mac
 convention for hidden system files, and Android needs to ignore those files as well!
 
 So, the fix was to change "file.png" to "._file.png". Although I consider it a bug
