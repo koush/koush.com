@@ -3,7 +3,7 @@
   "date": "5-4-2013"
 }}}
 
-I've been dealing with a nasty bug in Helium (formerly Carbon) since the initial release:
+I've been dealing with a nasty bug in [Helium](https://play.google.com/store/apps/details?id=com.koushikdutta.backup) ([formerly Carbon](https://plus.google.com/103583939320326217147/posts/LUBoUuetNA8)) since the initial release:
 The app icons that are saved to the SD Card during app backup pollute the user's Gallery.
 I tore my hair out trying to fix this, as this was the number one complaint about the app, including:
 
