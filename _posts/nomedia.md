@@ -35,6 +35,8 @@ Well, apparently '.\_' prefixed files are also considered "isNoMediaFile"! This 
 external SD card on a Mac often results in the Mac creating '.\_' files in various directories. This is the Mac
 convention for hidden system files, and Android needs to ignore those files as well!
 
-So, the fix was to change "file.png" to "._file.png". Though, one should probably also keep a .nomedia file in the same
-directory, ensure backwards compatibility with older versions of Android. Although I consider it a bug
-that the MediaScanner is scanning directories with .nomedia files in them, I am relieved and happy to find a workaround.
+So, the fix was to change "file.png" to "._file.png". Though, one should also keep a .nomedia file anyways,
+as this is [the recommended practice](http://developer.android.com/guide/topics/data/data-storage.html#filesExternal),
+and it also ensures backwards compatibility with older versions of Android.
+
+Although I consider it a bug that the MediaScanner is scanning directories with .nomedia files in them, I am relieved and happy to find a workaround.
