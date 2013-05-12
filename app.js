@@ -199,7 +199,6 @@ poet
           },
           url: 'https://api.github.com/repos/' + name
         }, function(err, resp, body) {
-          console.log(arguments);
           cb(null, JSON.parse(body));
         })
       },
