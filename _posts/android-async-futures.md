@@ -29,7 +29,7 @@ So, now:
 
 ```java
 Future<String> string = client.getString("http://foo.com/hello.txt");
-// this may throw if there was an error getting the string!
+// this will block, and may also throw if there was an error!
 String value = string.get();
 ```
 
