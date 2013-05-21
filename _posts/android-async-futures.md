@@ -3,7 +3,7 @@
   "date": "5-20-2013"
 }}}
 
-If you haven't play with [AndroidAsync](http://koush.com/AndroidAsync) yet, you should. It's a powerful [NIO](http://en.wikipedia.org/wiki/New_I/O) based
+If you haven't used [AndroidAsync](http://koush.com/AndroidAsync) yet, you should. It's a powerful [NIO](http://en.wikipedia.org/wiki/New_I/O) based
 socket and HTTP library for Android. Super fast, easy to use, and asynchronous.
 
 The initial implementation was entirely callback based. So, you'd do something like, this:
