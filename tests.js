@@ -23,7 +23,7 @@ exports.route = function(server, app) {
     console.log('chat socket');
   });
   
-  app.get('/test/echo', function(req, res) {
+  app.post('/test/echo', function(req, res) {
     res.send(req.body);
   });
 }
