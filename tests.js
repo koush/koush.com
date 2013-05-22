@@ -22,4 +22,8 @@ exports.route = function(server, app) {
   .on('connection', function(socket) {
     console.log('chat socket');
   });
+  
+  app.get('/test/echo', function(req, res) {
+    res.send(req.body);
+  });
 }
