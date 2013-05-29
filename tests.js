@@ -26,4 +26,8 @@ exports.route = function(server, app) {
   app.post('/test/echo', function(req, res) {
     res.send(req.body);
   });
+  
+  app.get('/test/hang', function(req, res) {
+    
+  });
 }
