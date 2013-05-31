@@ -232,6 +232,9 @@ poet
   app.get('/AndroidAsync', function(req, res) {
     getProject('koush/AndroidAsync', req, res);
   })
+  app.get('/ion', function(req, res) {
+    getProject('koush/ion', req, res);
+  })
   app.get('/UrlImageViewHelper', function(req, res) {
     getProject('koush/UrlImageViewHelper', req, res);
   })
