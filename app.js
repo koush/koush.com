@@ -166,7 +166,7 @@ poet
   fn : renderMarkdown
 })
 .set({
-  postsPerPage: 2
+  postsPerPage: 3
 })
 .init(function(core) {
   app.get('/rss', function ( req, res ) {
@@ -185,7 +185,7 @@ poet
   
   
   app.get('/', function(req, res) {
-    var posts = core.getPosts(0, 2);
+    var posts = core.getPosts(0, 3);
     res.render('index', { posts: posts });
   });
   
