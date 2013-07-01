@@ -55,7 +55,7 @@ Ion.with(context, "http://example.com/post")
 .asJsonObject()
 .setCallback(new FutureCallback<JsonObject>() {
    @Override
-    public void onCompleted(Exception e, String result) {
+    public void onCompleted(Exception e, JsonObject result) {
         // do stuff with the result or error
     }
 });
