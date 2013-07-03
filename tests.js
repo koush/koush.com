@@ -16,11 +16,27 @@ exports.route = function(server, app) {
       else
         socket.send(msg);
     });
+    socket.on('disconnect', function() {
+      console.log('disconnected from main channel');
+    })
   });
   
   io.of('/chat')
   .on('connection', function(socket) {
     console.log('chat socket');
+    socket.on('ping', function() {
+      var args = Array.prototype.slice.call(arguments);
+      args.unshift('pong');
+      socket.emit.apply(socket, args);
+    });
+    socket.on('message', function(msg) {
+      console.log('ponging');
+      console.log(msg);
+      if (msg.constructor.name == 'Object')
+        socket.json.send(msg);
+      else
+        socket.send(msg);
+    });
   });
   
   app.post('/test/echo', function(req, res) {
