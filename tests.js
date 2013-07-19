@@ -4,6 +4,14 @@ exports.route = function(server, app) {
   var io = require('socket.io').listen(server);
   io.sockets.on('connection', function (socket) {
     console.log('socket');
+    
+    socket.on('poop', function(ping){
+         var ack = function(data){
+          socket.emit('ack',data);
+         }
+      socket.emit('scoop','scoop', ack);
+    });
+    
     socket.on('ping', function(data, cb) {
       var args = Array.prototype.slice.call(arguments);
       args.unshift('pong');
