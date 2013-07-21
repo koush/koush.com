@@ -3,6 +3,8 @@
   "date": "7-20-2013"
 }}}
 
+![](yield-await-v8/borat.jpg)
+
 A few months ago, I [blogged about hacking V8](http://koush.com/post/yield-await-v8) to add support for await.
 Since then, V8 has finally gotten around to adding [native support for generators/yield](https://code.google.com/p/v8/issues/detail?id=2355).
 
