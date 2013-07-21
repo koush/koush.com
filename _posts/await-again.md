@@ -8,7 +8,8 @@
 A few months ago, I [blogged about hacking V8](http://koush.com/post/yield-await-v8) to add support for await.
 Since then, V8 has finally gotten around to adding [native support for generators/yield](https://code.google.com/p/v8/issues/detail?id=2355).
 
-Rewriting await on top of yield has proven to be extremely easy. Roughly [130 lines of code](https://github.com/koush/node/commit/28ff643c578ee60ae0406d9d26e47bf56fba9660).
+Rewriting await on top of yield has proven to be extremely easy. Roughly [130 lines of code](https://github.com/koush/node/commit/28ff643c578ee60ae0406d9d26e47bf56fba9660) over the course of a couple hours.
+Whereas, the original implementation I did over a year ago took 1600 lines of code over the course of several weeks.
 
 The "await" keyword works with legacy synchronous functions that take a final callback argument:
 
