@@ -16,7 +16,7 @@ The "await" keyword works with legacy synchronous functions that take a final ca
 ```javascript
 function callback(cb) {
   process.nexttick(function() {
-    cb(time, 'epic meal time');
+    cb(3);
   });
 }
 
