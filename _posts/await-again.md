@@ -30,7 +30,7 @@ asyncfunction().next();
 
 // previous async function is equivalent to:
 function syncfunction() {
-  cb(function(value) {
+  callback(function(value) {
     console.log(value);
   });
 }
