@@ -54,9 +54,13 @@ exports.route = function(server, app) {
         socket.send(msg);
     });
   });
-  
+
   app.post('/test/echo', function(req, res) {
-    res.send(req.body);
+    // console.log(req);
+    if (req.text)
+      res.send(req.text)
+    else
+      res.send(req.body);
   });
   
   app.get('/test/hang', function(req, res) {

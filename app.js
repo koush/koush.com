@@ -135,6 +135,19 @@ app.configure(function(){
     }
     next();
   });
+  
+  app.use(function(req, res, next) {
+    console.log('heello');
+    if (req.is('text/*')) {
+      req.text = '';
+      req.setEncoding('utf8');
+      req.on('data', function(chunk){ req.text += chunk });
+      req.on('end', next);
+    } else {
+      next();
+    }
+  });
+  
   app.use(express.favicon(path.join(process.cwd(), 'public/favicon.ico')));
   app.use(express.logger('dev'));
   // app.use(require('less-middleware')({ src: __dirname + '/public' }));
