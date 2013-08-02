@@ -26,4 +26,4 @@ Two hours of hacking later:
 
 ![](http://www.youtube.com/watch?v=D8-z2E8BwTU)
 
-Chromecast is a platform. It doesn't matter what comes built into it. What matters is what you can built with it.
+Chromecast is a platform. It doesn't matter what comes built into it. What matters is what developers can build on it.
