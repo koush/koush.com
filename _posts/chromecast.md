@@ -8,8 +8,8 @@ sending videos and pictures from your device to Chromecast:
 
 ![](http://www.youtube.com/watch?v=DMIsMjms_Zw)
 
-This got a lot of coverage on various social networks and blogs. And someone
-pointed out something funny that @gruber [had posted](http://daringfireball.net/linked/2013/07/25/chromecast-catches) on Daring Fireball:
+This got a lot of coverage on various social networks and blogs. One of the viewers
+directed me towards a funny statement that @gruber [had posted](http://daringfireball.net/linked/2013/07/25/chromecast-catches) on Daring Fireball:
 
 > That’s what I assumed yesterday as well, but I’m pretty sure now that’s not the case. Chromecast only streams video from the web; it has nothing like AirPlay. You can’t send video from your phone to Chromecast.
 
@@ -21,8 +21,8 @@ to what the platform can do out of the box.
 I guess not. Gruber seemed stuck on whether device streaming is built in. As if it would not be possible if it weren't built in.
 As if the Chromecast was not in fact a full fledged mobile computer; and instead an unextendible appliance. A toaster. An Apple TV.
 
-I took a quick poll of my followers on what they'd like to see next. There was overwhelming demand for streaming from Dropbox.
-Two hours of hacking later:
+I took a quick poll of my followers on what they'd like to see next. Most of the request seemed to be around
+either streaming from a local media server or cloud storage; two hours of hacking later:
 
 ![](http://www.youtube.com/watch?v=D8-z2E8BwTU)
 
