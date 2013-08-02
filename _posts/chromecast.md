@@ -6,7 +6,7 @@
 I've been having a lot of fun hacking on my Chromecast. The first (sorely) missing feature,
 sending videos and pictures from your device to Chromecast:
 
-![](http://www.youtube.com/watch?v=D8-z2E8BwTU)
+![](http://www.youtube.com/watch?v=DMIsMjms_Zw)
 
 This got a lot of coverage on various social networks and blogs. And someone
 pointed out something funny that @gruber [had posted](http://daringfireball.net/linked/2013/07/25/chromecast-catches) on Daring Fireball:
