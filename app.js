@@ -137,7 +137,6 @@ app.configure(function(){
   });
   
   app.use(function(req, res, next) {
-    console.log('heello');
     if (req.is('text/*')) {
       req.text = '';
       req.setEncoding('utf8');
