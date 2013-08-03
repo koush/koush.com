@@ -63,6 +63,10 @@ exports.route = function(server, app) {
       res.send(req.body);
   });
   
+  app.post('/test/post', function(req, res) {
+    res.send({ok: true});
+  })
+  
   app.get('/test/hang', function(req, res) {
     
   });
