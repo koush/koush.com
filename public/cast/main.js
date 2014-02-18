@@ -67,7 +67,7 @@ $(document).ready(function() {
     }
 
     try {
-        if (!chrome) {
+        if (!window.chrome) {
             console.log('not chrome');
         }
         else if (!chrome.socket) {
