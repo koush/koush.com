@@ -69,9 +69,8 @@ $(document).ready(function() {
     try {
         cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
         var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
-        castReceiverManager.start();
         var appConfig = new cast.receiver.CastReceiverManager.Config();
-        appConfig.statusText = 'Ready to play';
+        appConfig.statusText = 'Waiting for Android';
         appConfig.maxInactivity = 6000;
         var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.koushikdutta.mirror');
         customMessageBus.onMessage = function(event) {
