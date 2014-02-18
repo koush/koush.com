@@ -67,6 +67,16 @@ $(document).ready(function() {
     }
 
     try {
+        if (!chrome) {
+            console.log('not chrome');
+        }
+        else if (!chrome.socket) {
+            console.log('not chrome.socket');
+        }
+        else {
+            console.log('has chrome.socket!');
+        }
+
         cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
         var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
         var appConfig = new cast.receiver.CastReceiverManager.Config();
