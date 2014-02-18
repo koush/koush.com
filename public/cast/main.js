@@ -24,6 +24,7 @@ $(document).ready(function() {
     pc.onicecandidate = function(event){
       if (event.candidate) {
         // pc.addIceCandidate(new RTCIceCandidate(event.candidate));
+        console.log(event.candidate);
         iceCandidates.push({candidate: event.candidate.candidate, sdpMid: event.candidate.sdpMid,
             sdpMLineIndex: event.candidate.sdpMLineIndex });
       }
@@ -37,28 +38,51 @@ $(document).ready(function() {
     else
         sessionUrl = decodeURIComponent(sessionUrl);
 
-    $.get(sessionUrl, function(data) {
-        console.log(data);
 
-        var message = { type: 'offer', sdp: data.sdp };
-        pc.setRemoteDescription(new RTCSessionDescription(message));
+    function connectSession() {
+        $.get(sessionUrl, function(data) {
+            console.log(data);
 
-        for (var i in data.ice) {
-            var d = data.ice[i];
-            var r = new RTCIceCandidate(d);
-            pc.addIceCandidate(r);
-        }
+            var message = { type: 'offer', sdp: data.sdp };
+            pc.setRemoteDescription(new RTCSessionDescription(message));
 
-        pc.createAnswer(function(description) {
-            pc.setLocalDescription(description);
-
-            function startSession() {
-                $.post(sessionUrl, { sdp: description.sdp, ice: JSON.stringify(iceCandidates) }, function(data) {
-                    console.log(data);
-                });
+            for (var i in data.ice) {
+                var d = data.ice[i];
+                var r = new RTCIceCandidate(d);
+                pc.addIceCandidate(r);
             }
 
-            setTimeout(startSession, 1000);
+            pc.createAnswer(function(description) {
+                pc.setLocalDescription(description);
+
+                function startSession() {
+                    $.post(sessionUrl, { sdp: description.sdp, ice: JSON.stringify(iceCandidates) }, function(data) {
+                        console.log(data);
+                    });
+                }
+
+                setTimeout(startSession, 1000);
+            });
         });
-    });
+    }
+
+    try {
+        var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+        castReceiverManager.start();
+        var appConfig = new cast.receiver.CastReceiverManager.Config();
+        appConfig.statusText = 'Ready to play';
+        appConfig.maxInactivity = 6000;
+        castReceiverManager.start(appConfig);
+        var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.koushikdutta.mirror');
+        customMessageBus.onMessage = function(event) {
+           // Handle message
+           sessionUrl = event.data;
+           connectSession();
+        }
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+    connectSession();
 });
