@@ -67,6 +67,7 @@ $(document).ready(function() {
     }
 
     try {
+        cast.receiver.logger.setLevelValue(cast.receiver.LoggerLevel.DEBUG);
         var castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
         castReceiverManager.start();
         var appConfig = new cast.receiver.CastReceiverManager.Config();
