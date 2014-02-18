@@ -73,13 +73,13 @@ $(document).ready(function() {
         var appConfig = new cast.receiver.CastReceiverManager.Config();
         appConfig.statusText = 'Ready to play';
         appConfig.maxInactivity = 6000;
-        castReceiverManager.start(appConfig);
         var customMessageBus = castReceiverManager.getCastMessageBus('urn:x-cast:com.koushikdutta.mirror');
         customMessageBus.onMessage = function(event) {
            // Handle message
            sessionUrl = event.data;
            connectSession();
         }
+        castReceiverManager.start(appConfig);
     }
     catch (e) {
         console.log(e);
