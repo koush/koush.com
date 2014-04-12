@@ -1,0 +1,64 @@
+==================================================================
+https://keybase.io/koush
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://koush.com
+  * I am koush (https://keybase.io/koush) on keybase.
+  * I have a public key with fingerprint 8263 4D45 4FFE 5213 0F71  868A 078A 8C77 C06F 6C89
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "82634d454ffe52130f71868a078a8c77c06f6c89",
+            "host": "keybase.io",
+            "key_id": "078a8c77c06f6c89",
+            "uid": "09f51aec5b2c376ba1511ba42f4f5100",
+            "username": "koush"
+        },
+        "service": {
+            "hostname": "koush.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1397328426,
+    "expire_in": 157680000,
+    "prev": "9d82996653632342b879e86484db60b78dba24007e4297f72c7ba8aec7b67867",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.5
+Comment: https://keybase.io/crypto
+
+yMHZAnicbZFtSFNRGMc3l2XDoMw+RQNPoSRj3tdz7p2gFPbBsH0JFMEY996d667p
+vXNvTueyliVpQhIE2WAYZGEYYfT6wSTKsogiIpGQCJFADYymUazwXCvoQ+fL4fyf
+///3nIfn8RabxW49ix38XCbvgfXFxGLEcri6tzQOZMPXDtxxcBSvX6qmN+JgIKjp
+YeAGAgNZzsfxnKpinqFZSkW0AAWJQoIkKAgpFFShIojACfxGyEwQjCyFsEsziEYe
+Xs1H1P/4I78LosrTElZ4mVFYBGWJ5mlaljhG5UiBokxjCAd1qQWbcCMS8oOEExAp
+qilEiq/3/bfsUowWkgoEjbChGM1E9ofDAbeZCrcHTFsblr1/AF5Z031kYhKI4mBI
+M3TgpolTCWsmkWZFxDICx0AnwLGAFsRezXTwCAoUOWYbHCVI0Scwogghz0KWYTlG
+FpCIBcgJnE+GlIwEnywxHEUhzDEiUhGjIFkSyNxIhkiAiPQP4VbdAG6WfFNqJMiQ
+1qhL4UgQg8SjiYYNFqvdsjE3x9yZxb55699N7lE3/aI9/HYHsOW/nWyF73ads+Xd
+O22zddxqOuJicq5UOo93jzOpHaNPdveVM7xtPDafSD4dfYlLSoarcj9OJwqbxkvu
+Ds7Sh6INOlecqqrVskVDS6XJJfVOfn9F+luBZ3hVGh305LuSb844ygaS1+GE//1y
+V/OB6KXL9liqWA/c1LJTC9NlDzM/Lkxdq19cKagpT3+1Lncaq3uL+usq83rmOy4e
+1Kx9vT1X25KdszOfXF9yy+RjjppIBR9bkW8s28dGksbtwu/17MDQh+5n50+duK+D
+n68zn5+P7TyZ7oIjk5WxVLy6cF82PQdmxNoqOtv2anibpw4uZPZra/TmCxA=
+=bYpF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/koush
+
+==================================================================
