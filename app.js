@@ -157,7 +157,7 @@ app.configure(function(){
 });
 
 app.get('/20*', function(req, res) {
-  req.pipe(request.put('http://www.koushikdutta.com' + req.path));
+  req.pipe(request.put('http://koush.blogspot.com' + req.path));
 });
 
 app.get('/post-content/*', function(req, res) {
