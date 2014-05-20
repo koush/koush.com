@@ -44,7 +44,8 @@ markdown.Markdown.dialects.Gruber.inline['`'] = function inlineCode( text ) {
 };
 
 pygmentsExecute = function(target, lang, callback) {
-  var pyg = exec(path.join(__dirname, 'pygments', 'main.py') + ' ' + lang, function(err, stdout, stderr) {
+  var pygPath = path.join(__dirname, 'pygments', 'main.py');
+  var pyg = exec(pygPath + ' ' + lang, function(err, stdout, stderr) {
     callback(stdout);
   });
 
@@ -157,7 +158,8 @@ app.configure(function(){
 });
 
 app.get('/20*', function(req, res) {
-  req.pipe(request.get('http://koushd.blogspot.com' + req.path));
+  console.log(req.path);
+  request.get('http://koushd.blogspot.com' + req.path).pipe(res);
 });
 
 app.get('/post-content/*', function(req, res) {
