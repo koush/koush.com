@@ -156,6 +156,10 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public'),  { maxAge: 300 }));
 });
 
+app.get('/20*', function(req, res) {
+  req.pipe(request.put('http://www.koushikdutta.com' + req.path));
+});
+
 app.get('/post-content/*', function(req, res) {
   res.header('Cache-Control', 'max-age=300');
   var f = req.params[0];
