@@ -7,6 +7,7 @@ Here's the specs on the stuff I use:
 
 *Hackintosh*
 
+ * [ASUS Z8PE-D12](http://www.newegg.com/Product/Product.aspx?Item=N82E16813131373)
  * [Dual 6 core 3.47 GHz Xeon (12 cores + Hyperthreading)](http://www.amazon.com/gp/product/B004O0CXAW/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B004O0CXAW&linkCode=as2&tag=clockw-20)
  * [48 GB RAM](http://www.amazon.com/gp/product/B006EWUO22/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B006EWUO22&linkCode=as2&tag=clockw-20)
  * [EVGA GeForce GTX760](http://www.amazon.com/gp/product/B00DHW4HXY/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00DHW4HXY&linkCode=as2&tag=clockw-20&linkId=EPX6SRZDQ3CD3PU7)
